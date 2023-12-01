@@ -15,7 +15,7 @@ Future<String> run() async {
 
 int getLineValue(String line) {  
   final integersRegEx =  RegExp(r'(\d{1,1})');
-  Iterable<RegExpMatch> matches = integersRegEx.allMatches(line);
+  final matches = integersRegEx.allMatches(line);
   
   if(matches.first[0] == null || matches.last[0] == null) {
     return 0;
