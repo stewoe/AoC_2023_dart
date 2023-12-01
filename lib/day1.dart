@@ -1,14 +1,17 @@
 import 'package:advent_of_code_2023/helpers.dart' as helpers;
+import 'package:collection/collection.dart';
 
 Future<String> run() async {
   final lines = await helpers.getFileContentAsList("files/input-day1.txt");
 
   final sum1 = lines
-    .fold(0, (prev, element) => prev + getLineValue(element));
+    .map(getLineValue)
+    .sum;
   
   final sum2 = lines
     .map(getNormalizedLine)
-    .fold(0, (prev, element) => prev + getLineValue(element));
+    .map(getLineValue)
+    .sum;
 
   return "Part 1: $sum1\nPart2: $sum2";
 }
